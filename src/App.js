@@ -1,8 +1,26 @@
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { AppProvider } from "./Context/AppProvider";
+import Dashboard from "./Pages/Dashboard";
+import Error from "./Pages/Error";
+import Login from "./Pages/Login";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Dashboard />,
+    errorElement: <Error />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+]);
+
 function App() {
   return (
-    <div className="App">
-      <h1>Hello World</h1>
-    </div>
+    <AppProvider>
+      <RouterProvider router={router} />
+    </AppProvider>
   );
 }
 
