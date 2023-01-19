@@ -1,4 +1,5 @@
 import React from "react";
+import useAppProvider from "../Hooks/useAppProvider";
 
 const Navbar = () => {
   return (
