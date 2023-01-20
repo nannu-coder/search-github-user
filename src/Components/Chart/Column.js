@@ -12,10 +12,10 @@ import FusionCharts from "fusioncharts";
 import Column2D from "fusioncharts/fusioncharts.charts";
 
 // Include the theme as fusion
-import FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
+// import FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
 
 // Adding the chart and theme as dependency to the core fusioncharts
-ReactFC.fcRoot(FusionCharts, Column2D, FusionTheme);
+ReactFC.fcRoot(FusionCharts, Column2D);
 
 // STEP 2 - Chart Data
 
@@ -36,6 +36,27 @@ const Column = ({ data }) => {
         xAxisName: "Repos",
         yAxisNameFontSize: "16px",
         xAxisNameFontSize: "16px",
+        showCanvasBorder: 0,
+        showAlternateHGridColor: 0,
+        usePlotGradientColor: 0,
+        valueFontSize: 16,
+        placeValuesInside: 0,
+        divLineColor: "#102a42",
+        divLineAlpha: 15,
+        captionFontColor: "#102a42",
+        captionFontBold: 0,
+        captionFontSize: 20,
+        captionFont: "Roboto",
+        baseFont: "Open Sans",
+        baseFontSize: 12,
+        baseFontColor: "#617d98",
+        smartLineColor: "#617d98",
+        showShadow: 0,
+        showPlotBorder: 0,
+        paletteColors:
+          "#2caeba, #5D62B5, #FFC533, #F2726F, #8d6e63, #1de9b6, #6E80CA",
+        bgColor: "#FFFFFF",
+        showBorder: 0,
       },
       // Chart Data
       data,

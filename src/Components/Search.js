@@ -3,21 +3,28 @@ import styled from "styled-components";
 import { MdSearch } from "react-icons/md";
 import useAppProvider from "../Hooks/useAppProvider";
 const Search = () => {
-  const { user, setUser } = useState("");
-  const { requests } = useAppProvider();
+  const [user, setuser] = useState("");
+  const { requests, error, searchGithubUser } = useAppProvider();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (user) {
       // more logic coming up soon
-      // searchGithubUser(user);
+      searchGithubUser(user);
+
       //optional
-      setUser("");
+      // setUser("");
     }
   };
 
   return (
     <section className="section">
       <Wrapper className="section-center">
+        {error.show && (
+          <ErrorWrapper>
+            <p>{error.msg}</p>
+          </ErrorWrapper>
+        )}
         <form onSubmit={handleSubmit}>
           <div className="form-control">
             <MdSearch />
@@ -25,7 +32,7 @@ const Search = () => {
               type="text"
               placeholder="enter github user"
               value={user}
-              onChange={(e) => setUser(e.target.value)}
+              onChange={(e) => setuser(e.target.value)}
             />
             {requests > 0 && <button type="submit">search</button>}
           </div>
@@ -102,6 +109,19 @@ const Wrapper = styled.div`
     margin-bottom: 0;
     color: var(--clr-grey-5);
     font-weight: 400;
+  }
+`;
+
+const ErrorWrapper = styled.article`
+  position: absolute;
+  width: 90vw;
+  top: 0;
+  left: 0;
+  transform: translateY(-100%);
+  text-transform: capitalize;
+  p {
+    color: red;
+    letter-spacing: var(--spacing);
   }
 `;
 
