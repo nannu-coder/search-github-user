@@ -31,6 +31,7 @@ function App() {
         authorizationParams={{
           redirect_uri: window.location.origin,
         }}
+        cacheLocation="localstorage"
       >
         <RouterProvider router={router} />
       </Auth0Provider>
