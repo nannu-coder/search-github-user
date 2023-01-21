@@ -10,7 +10,11 @@ function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Dashboard />,
+      element: (
+        <PrivateRoute>
+          <Dashboard />
+        </PrivateRoute>
+      ),
 
       errorElement: <Error />,
     },
